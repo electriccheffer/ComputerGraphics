@@ -10,16 +10,8 @@ int main() {
 		return -1;
 	
 	}
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL Test", nullptr, nullptr);
-    if (!window) {
-        std::cerr << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
-    }
-
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
+    GLFWwindow* window = createAWindow(800, 600, "OpenGL Test", nullptr, nullptr);
+    
     // Render loop
     while (!glfwWindowShouldClose(window)) {
         // Clear the screen

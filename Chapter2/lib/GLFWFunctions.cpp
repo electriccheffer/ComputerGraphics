@@ -1,6 +1,7 @@
 #include "../include/GLFWFunctions.hpp"
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <stdexcept>
 
 int init(){
 
@@ -17,8 +18,23 @@ int init(){
 	return 0; 
 }
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+void framebuffer_size_callback(GLFWwindow* win, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
+	GLFWwindow* createAWindow(int width,int height,const char* title,GLFWmonitor* monitor,GLFWwindow* win){
+
+
+	GLFWwindow* window = glfwCreateWindow(width,height, title, monitor, win);
+    	if (!window) {
+        	std::cerr << "Failed to create GLFW window" << std::endl;
+        	glfwTerminate();
+        	throw std::runtime_error("Failed to create a window.");
+	}
+
+	glfwMakeContextCurrent(window);
+	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+	return window;
+}
 
