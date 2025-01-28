@@ -8,14 +8,13 @@ OBJS = $(OBJ_DIR)/GLFWFunctions.o
 INCLUDE_HELPERS = -I/opt/homebrew/include -L/opt/homebrew/lib -lglfw -framework OpenGL
 
 build: $(TARGET)
-       
+	make clean
 run: 
 	make build
 	$(BIN_DIR)/Sirpinski
 
 $(TARGET): $(OBJS)
 	c++ -o $(BIN_DIR)/Sirpinski $(OBJS) $(INCLUDE_HELPERS) $(SRC_DIR)/SirpinskiGasket.cpp  
-	make clean
 
 $(OBJS): $(LIB_DIR)/GLFWFunctions.cpp
 	c++ -c -o $(OBJS) $(INCLUDE_HELPERS) $(LIB_DIR)/GLFWFunctions.cpp 
