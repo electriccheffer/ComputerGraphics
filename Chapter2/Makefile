@@ -14,7 +14,7 @@ INCLUDE_HELPERS = -I/opt/homebrew/include -L/opt/homebrew/lib -lglfw -framework 
 TEST_INCLUDE_HELPERS = -std=c++17 -isystem /opt/homebrew/include -L/opt/homebrew/lib -lgtest -lgtest_main -pthread
 
 OBJS = $(OBJ_DIR)/GLFWFunctions.o
-TEST_SRC = $(TEST_DIR)/TrivialTest.cpp
+TEST_SRC = $(TEST_DIR)/TrivialTest.cpp $(TEST_DIR)/vecTest.cpp
 TEST_OBJS = $(TEST_BUILD_DIR)/TrivialTest.o
 
 test: $(TEST_TARGET)
@@ -42,9 +42,9 @@ debug:
 	@echo $(LIB_DIR)/GLFWFunctions.cpp 
 
 clean: 
-	rm $(OBJS) 
-	rm $(TARGET) 
+	rm -f $(OBJS) 
+	rm -f $(TARGET) 
 
 test_clean: 
 	make clean
-	rm $(TEST_TARGET) 
+	rm -f $(TEST_TARGET) 
