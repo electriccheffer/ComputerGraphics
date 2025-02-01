@@ -14,3 +14,9 @@ vec2::vec2(GLfloat x, GLfloat y){
 	
 }
 
+vec2::vec2(const vec2& newVector){
+
+	this->x = newVector.x; 
+	this->y = newVector.y; 
+
+}
