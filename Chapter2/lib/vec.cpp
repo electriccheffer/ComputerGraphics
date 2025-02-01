@@ -32,3 +32,15 @@ bool vec2::operator==(const vec2& otherVector){
 	return true; 
 
 }
+
+
+bool vec2::operator!=(const vec2& otherVector){
+
+	if(*this == otherVector){
+	
+		return false; 
+	}
+	return true; 
+
+	
+}

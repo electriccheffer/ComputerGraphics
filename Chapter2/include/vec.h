@@ -9,5 +9,6 @@ struct vec2{
 	vec2(GLfloat x, GLfloat y);  	
 	vec2(const vec2& newVector);
 	bool operator==(const vec2& otherVector);
+	bool operator!=(const vec2& otherVector);
 };
 #endif 
