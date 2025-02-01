@@ -20,3 +20,15 @@ vec2::vec2(const vec2& newVector){
 	this->y = newVector.y; 
 
 }
+
+bool vec2::operator==(const vec2& otherVector){
+	
+	if(this->x != otherVector.x){
+		return false; 
+	}
+	if(this->y != otherVector.y){
+		return false; 
+	}
+	return true; 
+
+}
