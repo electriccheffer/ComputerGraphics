@@ -13,12 +13,11 @@ TEST_TARGET = $(TEST_BIN_DIR)/Tests
 INCLUDE_HELPERS = -I/opt/homebrew/include -L/opt/homebrew/lib -lglfw -framework OpenGL
 TEST_INCLUDE_HELPERS = -std=c++17 -isystem /opt/homebrew/include -L/opt/homebrew/lib -lgtest -lgtest_main -pthread
 
-OBJS = $(OBJ_DIR)/GLFWFunctions.o
+OBJS = $(OBJ_DIR)/GLFWFunctions.o $(OBJ_DIR)/vec.o
 TEST_SRC = $(TEST_DIR)/TrivialTest.cpp $(TEST_DIR)/vecTest.cpp
 TEST_OBJS = $(TEST_BUILD_DIR)/TrivialTest.o
 
 test: $(TEST_TARGET)
-	make build
 	$(TEST_TARGET)
 	make test_clean
 
@@ -32,11 +31,13 @@ run:
 
 $(TARGET): $(OBJS)
 
-$(OBJS): $(LIB_DIR)/GLFWFunctions.cpp
-	c++ -c -o $(OBJS) $(INCLUDE_HELPERS) $(LIB_DIR)/GLFWFunctions.cpp 
-
+$(OBJS): $(LIB_DIR)/GLFWFunctions.cpp $(LIB_DIR)/vec.cpp
+	c++ -c -o $(OBJ_DIR)/GLFWFunctions.o $(INCLUDE_HELPERS) $(LIB_DIR)/GLFWFunctions.cpp 
+	c++ -c -o $(OBJ_DIR)/vec.o $(INCLUDE_HELPERS) $(LIB_DIR)/vec.cpp
+	
 $(TEST_TARGET): $(TEST_SRC)
-	c++ -o $(TEST_TARGET) $(TEST_INCLUDE_HELPERS) $(INCLUDE_HELPERS) $(TEST_SRC) 
+	make build
+	c++ -o $(TEST_TARGET) $(TEST_INCLUDE_HELPERS) $(INCLUDE_HELPERS) $(OBJS) $(TEST_SRC) 
 
 debug: 
 	@echo $(LIB_DIR)/GLFWFunctions.cpp 
