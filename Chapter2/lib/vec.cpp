@@ -21,7 +21,7 @@ vec2::vec2(const vec2& newVector){
 
 }
 
-bool vec2::operator==(const vec2& otherVector){
+bool vec2::operator==(const vec2& otherVector)const{
 	
 	if(this->x != otherVector.x){
 		return false; 
@@ -34,7 +34,7 @@ bool vec2::operator==(const vec2& otherVector){
 }
 
 
-bool vec2::operator!=(const vec2& otherVector){
+bool vec2::operator!=(const vec2& otherVector)const{
 
 	if(*this == otherVector){
 	
@@ -46,10 +46,18 @@ bool vec2::operator!=(const vec2& otherVector){
 }
 
 
-vec2 vec2::operator+(const vec2& otherVector){
+vec2 vec2::operator+(const vec2& otherVector)const{
 
 	GLfloat xResult = this->x + otherVector.x; 
 	GLfloat yResult = this->y + otherVector.y; 
 	vec2 additionResult(xResult,yResult); 
 	return additionResult; 
+}
+
+vec2 vec2::operator-()const{
+
+	GLfloat newX = -this->x;
+	GLfloat newY = -this->y; 
+	return vec2(newX,newY);
+
 }
