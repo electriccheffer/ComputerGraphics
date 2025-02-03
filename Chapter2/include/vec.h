@@ -12,5 +12,6 @@ struct vec2{
 	bool operator!=(const vec2& otherVector)const;
 	vec2 operator+(const vec2& otherVector)const;
 	vec2 operator-()const;
+	vec2 operator-(const vec2& otherVector)const; 
 };
 #endif 

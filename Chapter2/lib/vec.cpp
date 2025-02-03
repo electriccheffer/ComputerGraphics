@@ -61,3 +61,11 @@ vec2 vec2::operator-()const{
 	return vec2(newX,newY);
 
 }
+
+vec2 vec2::operator-(const vec2& otherVector)const{
+	
+	vec2 negatedOtherVector = -otherVector;	
+	vec2 subtractionResult = *this + negatedOtherVector; 
+	return subtractionResult; 
+	
+}
