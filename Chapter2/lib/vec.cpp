@@ -44,3 +44,12 @@ bool vec2::operator!=(const vec2& otherVector){
 
 	
 }
+
+
+vec2 vec2::operator+(const vec2& otherVector){
+
+	GLfloat xResult = this->x + otherVector.x; 
+	GLfloat yResult = this->y + otherVector.y; 
+	vec2 additionResult(xResult,yResult); 
+	return additionResult; 
+}
