@@ -13,5 +13,6 @@ struct vec2{
 	vec2 operator+(const vec2& otherVector)const;
 	vec2 operator-()const;
 	vec2 operator-(const vec2& otherVector)const; 
+	vec2 operator*(const GLfloat scalar)const; 
 };
 #endif 

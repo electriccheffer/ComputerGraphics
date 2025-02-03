@@ -69,3 +69,11 @@ vec2 vec2::operator-(const vec2& otherVector)const{
 	return subtractionResult; 
 	
 }
+
+vec2 vec2::operator*(const GLfloat scalar)const{
+
+	GLfloat scaledX = this->x * scalar; 
+	GLfloat scaledY = this->y * scalar; 
+	vec2 scalarResult(scaledX,scaledY); 
+	return scalarResult; 
+}
